@@ -9,6 +9,12 @@ jobs:
     - name: Build Productpage
       run: |     
         docker build -t productpage:meetup $GITHUB_WORKSPACE/src/productpage
+    - name: Setup k8s cluster
+      uses: engineerd/setup-kind@v0.1.0
+    - name: Load Productpage
+      run: |     
+        kind load docker-image productpage:meetup
+        kubectl create deployment productpage --image=productpage:meetup --dry-run -o yaml | kubectl apply -f -
         
 
 # kind load docker-image productpage:$sha      
