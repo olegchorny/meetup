@@ -1,0 +1,16 @@
+name: Docker Image CI
+
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1    
+    - name: Build Productpage
+      run: |     
+        docker build -t productpage:meetup $GITHUB_WORKSPACE/src/productpage
+        
+
+# kind load docker-image productpage:$sha      
+#    sha=${GITHUB_SHA:0:7}
+#         app="${GITHUB_REPOSITORY#*/}"
