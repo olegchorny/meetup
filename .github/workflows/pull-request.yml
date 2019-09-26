@@ -12,7 +12,7 @@ jobs:
         docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/productpage:$sha
         docker login docker.pkg.github.com -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
         docker push -t docker.pkg.github.com/$GITHUB_REPOSITORY/productpage:$sha
-#     - name: Setup k8s cluster
+#     - name: Setup k8s cluster 
 #       uses: engineerd/setup-kind@v0.1.0
 #     - name: Load Productpage
 #       run: |     
