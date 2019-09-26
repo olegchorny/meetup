@@ -212,7 +212,7 @@ def index():
 
 @app.route('/health')
 def health():
-    return 'Product page is healthy. Hello Meetup.'
+    return 'Product page is healthy. Hello Meetup!'
 
 
 @app.route('/login', methods=['POST'])
